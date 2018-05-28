@@ -1,9 +1,9 @@
 <% include partials/header %>
 <h1>Create a new Form</h1>
-<form>
-	<input type="text" placeholder="title"></input>
-	<input type="text" placeholder="image"></input>
-	<textarea placeholder="body"></textarea>
+<form action="/home" method="POST">
+	<input type="text" name="blog[title]" placeholder="title"></input>
+	<input type="text" name="blog[image]" placeholder="image"></input>
+	<textarea rows="8" cols="100" name="blog[body]" placeholder="body"></textarea>
 	<input type="submit"></input>
 </form>
 <% include partials/footer %>

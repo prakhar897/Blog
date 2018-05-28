@@ -9,6 +9,7 @@ app.set("view engine","ejs");
 app.use(bodyparser.urlencoded({extended:true}));
 
 //Database Setup
+mongoose.connect("mongodb://localhost/blog");
 var blogSchema = new mongoose.Schema({
 	title:String,
 	image:String,
@@ -25,12 +26,28 @@ app.get("/",function(req,res){
 
 //INDEX Route
 app.get("/home",function(req,res){
-	res.render("home",{blog:blog});
+	blog.find({},function(err,blogs){
+		if(err)
+			console.log(err);
+		else
+			res.render("home",{blog:blogs});
+	});
+	
 });
 
 //NEW Route
 app.get("/home/new",function(req,res){
 	res.render("new");
+});
+
+//CREATE Route
+app.post("/home",function(req,res){
+	blog.create(req.body.blog,function(err,newBlog){
+		if(err)
+			console.log(err);
+		else
+			res.redirect("/home");
+	});
 });
 
 app.listen(3000,function(req,res){

@@ -1,3 +1,11 @@
 <% include partials/header %>
 <h1>This is Home PAge</h1>
+<% 	blog.forEach(function(item){ %>
+	<h2>	<%= item.title %> </h2>
+	<img src="<%= item.image %>"/>
+	<p> <%= item.time %></p>
+	<p> <%= item.body %></p>
+
+<% }); %>
+<% console.log(blog);%>
 <% include partials/footer %>
