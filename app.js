@@ -13,7 +13,7 @@ mongoose.connect("mongodb://localhost/blog");
 var blogSchema = new mongoose.Schema({
 	title:String,
 	image:String,
-	time:Date,
+	time:{type:Date,default:Date.now},
 	body:String
 });
 
