@@ -7,6 +7,7 @@ var bodyparser = require("body-parser");
 //Misc Commands
 app.set("view engine","ejs");
 app.use(bodyparser.urlencoded({extended:true}));
+app.use(express.static("public"));
 
 //Database Setup
 mongoose.connect("mongodb://localhost/blog");

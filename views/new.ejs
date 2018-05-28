@@ -1,9 +1,19 @@
 <% include partials/header %>
-<h1>Create a new Form</h1>
-<form action="/home" method="POST">
-	<input type="text" name="blog[title]" placeholder="title"></input>
-	<input type="text" name="blog[image]" placeholder="image"></input>
-	<textarea rows="8" cols="100" name="blog[body]" placeholder="body"></textarea>
-	<input type="submit"></input>
-</form>
+<div class="container">
+	<form class="ui form" action="/home" method="POST">
+		<div class="field">
+			<label> Title </label>
+			<input type="text" name="blog[title]" placeholder="Enter Title">
+		</div>
+		<div class="field">
+			<label> Image </label>
+			<input type="text" name="blog[image]" placeholder="Enter Image">
+		</div>
+		<div class="field">
+			<label> Body </label>
+			<textarea name="blog[body]" placeholder="Enter Body"></textarea>
+		</div>
+		<button class="ui button" type="submit">Submit</button>
+	</form>
+</div>
 <% include partials/footer %>
