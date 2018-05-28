@@ -1,11 +1,28 @@
 <% include partials/header %>
-<h1>This is Home PAge</h1>
-<% 	blog.forEach(function(item){ %>
-	<h2>	<%= item.title %> </h2>
-	<img src="<%= item.image %>"/>
-	<p> <%= item.time %></p>
-	<p> <%= item.body %></p>
 
-<% }); %>
-<% console.log(blog);%>
+<div class="ui main container">
+	<div class="ui divided items">
+		<% 	blog.forEach(function(item){ %>
+			<div class="item">
+				<div class="ui small image">
+					<img src="<%= item.image %>"/>
+				</div>
+				<div class="top aligned content">
+					<div class="header">
+						<h2>	<%= item.title %> </h2>
+					</div>
+					<div class="description">
+						<p> <%= item.body.substring(0,100); %></p>
+					</div>
+					<div class="extra">
+					<p> <%= item.time.toDateString(); %></p>
+						<button class="ui teal basic button">Edit</button>
+						<button class="ui red basic button">Delete</button>
+					</div>
+				</div>
+			</div>
+		<% }); %>
+	</div>
+</div>
+
 <% include partials/footer %>
