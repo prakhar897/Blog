@@ -1,27 +1,33 @@
 <% include partials/header %>
 
 <div class="ui main container">
-	<div class="ui divided items">
-		<% 	blog.forEach(function(item){ %>
-			<div class="item">
-				<div class="ui small image">
-					<img src="<%= item.image %>"/>
+	<div class="ui huge header">
+		RESTFUL Blog App
+	</div>
+	<div class = "ui top attached segment">
+		<div class="ui divided items">
+			<% 	blog.forEach(function(item){ %>
+				<div class="item">
+					<div class="ui small image">
+						<img class="ui medium bordered image" src="<%= item.image %>"/>
+					</div>
+					<div class="top aligned content">
+						<div class="header">
+							<h2>	<%= item.title %> </h2>
+						</div>
+						<div class="description">
+							<p> <%- item.body.substring(0,100); %></p>
+						</div>
+						<div class="extra">
+						<p> <%= item.time.toDateString(); %></p>
+							<a class="ui blue basic button" href="/home/<%=item._id%>">Read More</a>
+							<a class="ui teal basic button" href="/home/:id/edit">Edit</a>
+							<a class="ui red basic button" href="/home/:id">Delete</a>
+						</div>
+					</div>
 				</div>
-				<div class="top aligned content">
-					<div class="header">
-						<h2>	<%= item.title %> </h2>
-					</div>
-					<div class="description">
-						<p> <%= item.body.substring(0,100); %></p>
-					</div>
-					<div class="extra">
-					<p> <%= item.time.toDateString(); %></p>
-						<button class="ui teal basic button">Edit</button>
-						<button class="ui red basic button">Delete</button>
-					</div>
-				</div>
-			</div>
-		<% }); %>
+			<% }); %>
+		</div>
 	</div>
 </div>
 

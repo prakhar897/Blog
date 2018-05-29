@@ -51,6 +51,16 @@ app.post("/home",function(req,res){
 	});
 });
 
+//SHOW Route
+app.get("/home/:id",function(req,res){
+	blog.findById(req.params.id,function(err,fndBlog){
+		if(err)
+			console.log(err);
+		else
+				res.render("show",{blog:fndBlog});
+	});
+});
+
 app.listen(3000,function(req,res){
-	console.log("working good");
+	console.log("Listening to port 3000");
 });
