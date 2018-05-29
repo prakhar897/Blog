@@ -61,6 +61,16 @@ app.get("/home/:id",function(req,res){
 	});
 });
 
+//EDIT Route
+app.get("/home/:id/edit",function(req,res){
+	blog.findById(req.params.id,function(err,editBlog){
+		if(err)
+			console.log(err);
+		else
+			res.render("edit",{blog:editBlog});
+	});
+});
+
 app.listen(3000,function(req,res){
 	console.log("Listening to port 3000");
 });

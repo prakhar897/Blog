@@ -21,8 +21,8 @@
 						<div class="extra">
 						<p> <%= item.time.toDateString(); %></p>
 							<a class="ui blue basic button" href="/home/<%=item._id%>">Read More</a>
-							<a class="ui teal basic button" href="/home/:id/edit">Edit</a>
-							<a class="ui red basic button" href="/home/:id">Delete</a>
+							<a class="ui teal basic button" href="/home/<%=item._id%>/edit">Edit</a>
+							<a class="ui red basic button" href="/home/<%=item._id%>">Delete</a>
 						</div>
 					</div>
 				</div>
