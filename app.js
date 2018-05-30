@@ -3,11 +3,13 @@ var express = require("express");
 var app = express();
 var mongoose = require("mongoose");
 var bodyparser = require("body-parser");
+var methodOverride = require("method-override");
 
 //Misc Commands
 app.set("view engine","ejs");
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(express.static("public"));
+app.use(methodOverride("_method"));
 
 //Database Setup
 mongoose.connect("mongodb://localhost/blog");
@@ -70,6 +72,17 @@ app.get("/home/:id/edit",function(req,res){
 			res.render("edit",{blog:editBlog});
 	});
 });
+
+//UPDATE Route
+app.put("/home/:id",function(req,res){
+	blog.findByIdAndUpdate(req.params.id,req.body.blog,function(err,updatedBlog){
+		if(err)
+			console.log(err);
+		else
+			res.redirect("/home/" + req.params.id);
+	});
+});
+
 
 app.listen(3000,function(req,res){
 	console.log("Listening to port 3000");
