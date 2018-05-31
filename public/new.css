@@ -1,3 +1,7 @@
 .nav {
     border-radius: 0px !important;
 }
+
+.del-btn{
+	display: inline;
+}

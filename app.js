@@ -83,6 +83,15 @@ app.put("/home/:id",function(req,res){
 	});
 });
 
+//Delete Route
+app.delete("/home/:id",function(req,res){
+	blog.findByIdAndRemove(req.params.id,function(err){
+		if(err)
+			console.log(err);
+		else
+			res.redirect("/home");
+	});
+});
 
 app.listen(3000,function(req,res){
 	console.log("Listening to port 3000");
